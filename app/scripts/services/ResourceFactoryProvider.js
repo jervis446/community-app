@@ -65,8 +65,10 @@
                     clientAccountResource: defineResource(apiVer + "/clients/:clientId/accounts", {clientId: '@clientId'}, {
                         getAllClients: {method: 'GET', params: {}}
                     }),
-                    clientNotesResource: defineResource(apiVer + "/clients/:clientId/notes", {clientId: '@clientId'}, {
-                        getAllNotes: {method: 'GET', params: {}, isArray: true}
+                    clientNotesResource: defineResource(apiVer + "/clients/:clientId/notes/:noteId", {clientId: '@clientId', noteId: '@noteId'}, {
+                        getAllNotes: {method: 'GET', params: {}, isArray: true},
+                        delete:{method:'DELETE',params:{}},
+                        put:{method:'PUT',params:{}}
                     }),
                     clientTemplateResource: defineResource(apiVer + "/clients/template", {}, {
                         get: {method: 'GET', params: {}}
@@ -315,7 +317,7 @@
                     holValueResource: defineResource(apiVer + "/holidays/:holId", {holId: '@holId'}, {
                         getholvalues: {method: 'GET', params: {}},
                         update: { method: 'PUT', params: {}}
-                    }),                    
+                    }),
                     holidayTemplateResource: defineResource(apiVer + "/holidays/template", {}, {
                         get: {method: 'GET', params: {}, isArray: true}
                     }),
